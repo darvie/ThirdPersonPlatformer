@@ -1,17 +1,15 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
-{    
+{
+    public UnityEvent OnSpacePressed; // This will trigger the jump event
 
-    public UnityEvent OnSpacePressed = new UnityEvent();
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnSpacePressed?.Invoke();
-                
-         }
+            OnSpacePressed?.Invoke(); // Calls Jump() on PlayerController
+        }
     }
 }
