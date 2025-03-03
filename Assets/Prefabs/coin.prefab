@@ -169,7 +169,7 @@ MonoBehaviour:
   rotationSpeed: 50
   floatSpeed: 0.5
   floatHeight: 0.2
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 53fde5e20dc976e418acef42ca217a42, type: 3}
 --- !u!1 &1447864909935807386
 GameObject:
   m_ObjectHideFlags: 0

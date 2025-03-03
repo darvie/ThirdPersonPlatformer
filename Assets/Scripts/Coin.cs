@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class Coin : MonoBehaviour
     [SerializeField] private AudioClip collectSound;
     private AudioSource audioSource;
     private Vector3 startPosition;
+    private ScoreManager scoreManager;
 
     void Start()
     {
         startPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     void Update()
@@ -38,6 +41,11 @@ public class Coin : MonoBehaviour
         if (collectSound != null)
         {
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        }
+
+        if (scoreManager != null)
+        {
+            scoreManager.AddScore(1);
         }
 
         Debug.Log("Coin Collected!");
