@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
     [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float groundCheckDistance = 0.2f;
 
     private Rigidbody playerRB;
     private bool isGrounded = true;
+    private int jumpCount = 0;
 
     void Start()
     {
@@ -70,7 +72,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             playerRB.linearVelocity = new Vector3(playerRB.linearVelocity.x, jumpForce, playerRB.linearVelocity.z);
-            isGrounded = false; 
+            isGrounded = false;
+            jumpCount = 1;
+        }
+        else if (jumpCount == 1)
+        {
+            playerRB.linearVelocity = new Vector3(playerRB.linearVelocity.x, jumpForce, playerRB.linearVelocity.z);
+            jumpCount = 2; 
         }
     }
 
@@ -80,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            jumpCount = 0;
         }
     }
 
