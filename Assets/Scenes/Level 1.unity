@@ -2421,7 +2421,9 @@ MonoBehaviour:
   gravityMultiplier: 2.5
   lowJumpMultiplier: 3
   cameraTransform: {fileID: 330585546}
-  groundCheckDistance: 0.2
+  dashSpeed: 250
+  dashDuration: 2
+  dashCooldown: 0.5
 --- !u!1 &1769329119
 GameObject:
   m_ObjectHideFlags: 0
