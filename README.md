@@ -1,3 +1,3 @@
 # ThirdPersonPlatformer
  
-![Video of Gmaeplay](ThirdPersonPlatformerGame)
+![Video of Gameplay](ThirdPersonPlatformerGame)
